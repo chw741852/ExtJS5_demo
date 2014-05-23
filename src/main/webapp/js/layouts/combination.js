@@ -75,7 +75,7 @@ function getCombinationLayouts() {
             title: 'TabPanel with Nested Layouts',
             activetab: 0,
             items:[{
-                title: 'Foo',
+                title: 'Foo',   // TODO 待完善
             }]
         }
     }
