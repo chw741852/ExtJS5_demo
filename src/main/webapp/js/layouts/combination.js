@@ -67,7 +67,7 @@ function getCombinationLayouts() {
 
     return {
         /*
-         * ================  TabPanel with nested layouts  =======================
+         * ================  TODO TabPanel with nested layouts  =======================
          */
         tabsNestedLayouts: {
             xtype: 'tabpanel',
@@ -75,8 +75,207 @@ function getCombinationLayouts() {
             title: 'TabPanel with Nested Layouts',
             activetab: 0,
             items:[{
-                title: 'Foo',   // TODO 待完善
+                title: 'Foo',
+                layout: 'border',
+                items: [{
+                    region: 'north',
+                    title: 'North',
+                    height: 75,
+                    maxSize: 150,
+                    margins: '5 5 0 5',
+                    bodyStyle: 'padding: 10px;',
+                    split: true,
+                    html: 'Some content'
+                }, {
+                    xtyle: 'tabpanel',
+                    plain: true,
+                    region: 'center',
+                    margins: '0 5 5 5',
+                    activeTab: 0,
+                    items: [{
+                        title: 'Inner Tab 1',
+                        bodyStyle: 'padding: 10px;',
+                        html: 'See Inner Tab 2 for another nested BorderLayout.'
+                    }, {
+                        title: 'Inner Tab 2',
+                        cls: 'inner-tab-custom',    // custom styles in layout-browser.css
+                        layout: 'border',
+                        // Make sure IE can still calculate dimensions after a resize when the tab is not active.
+                        // With display mode, if the tab is rendered but hidden, IE will mess up the layout on show:
+                        hideMode: Ext.isIE ? 'offsets' : 'display',
+                        items: [{
+                            title: 'West',
+                            region: 'west',
+                            collapsible: true,
+                            width: 150,
+                            minSize: 100,
+                            maxSize: 350,
+                            margins: '5 0 5 5',
+                            cmargins: '5 5 5 5',
+                            html: 'Hello',
+                            bodyStyle: 'padding: 10px;',
+                            split: true
+                        }, {
+                            xtype: 'tabpanel',
+                            region: 'center',
+                            margins: '5 5 5 0',
+                            tabPosition: 'bottom',
+                            activeTab: 0,
+                            items: [{
+                                // Panels that are used as tabs do not have title bars since the tab
+                                // itself if the title container. If you want to have a full title
+                                // bar within a tab, you can easily nest another panel within the tab
+                                // with layout:'fit' to achieve that:
+                                title: 'Bottom Tab',
+                                layout: 'fit',
+                                items: {
+                                    title: 'Interior Content',
+                                    bodyStyle: 'padding: 10px;',
+                                    border: false,
+                                    html: 'See the next tab for a nested grid. The grid is no rendered until its tab is first accessed.'
+                                }
+                            }, {
+                                // A common mistake when adding grids to a layout is creating a panel first,
+                                // then add the grid to it. GridPanel (xtype:'grid') is a Panel subclass,
+                                // so you add it directly as an item into a container. Typically you will
+                                // want to specify layout:'fit' on GridPanels so that they'll size along with
+                                // their container and take up the available space.
+                                title: 'Nested Grid',
+                                xtype: 'grid',
+                                layout: 'fit',
+                                store: Ext.create('Ext.data.ArrayStore', {
+                                    fields: [
+                                        {name: 'company'},
+                                        {name: 'price', type: 'float'},
+                                        {name: 'change', type: 'float'},
+                                        {name: 'pctChange', type: 'float'},
+                                        {name: 'lastChange', type: 'date', dateFormat: 'n/j h:ia'}
+                                    ],
+                                    data: myData
+                                }),
+                                columns: [
+                                    {
+                                        text: 'Company',
+                                        flex: 1,
+                                        sortable: false,
+                                        dataIndex: 'company'
+                                    },
+                                    {
+                                        text: 'Price',
+                                        width: 75,
+                                        sortable: true,
+                                        formatter: 'usMoney',
+                                        dataIndex: 'price'
+                                    },
+                                    {
+                                        text     : 'Change',
+                                        width    : 75,
+                                        sortable : true,
+                                        renderer : change,
+                                        dataIndex: 'change'
+                                    },
+                                    {
+                                        text     : '% Change',
+                                        width    : 75,
+                                        sortable : true,
+                                        renderer : pctChange,
+                                        dataIndex: 'pctChange'
+                                    },
+                                    {
+                                        text     : 'Last Updated',
+                                        width    : 85,
+                                        sortable : true,
+                                        formatter: 'date("m/d/Y")',
+                                        dataIndex: 'lastChange'
+                                    }
+                                ],
+                                stripeRows: true
+                            }]
+                        }]
+                    }]
+                }]
+            }, {
+                title: 'Bar',
+                bodyStyle: 'padding: 10px;',
+                html: 'Nothing to see here.'
             }]
+        },
+
+        /*
+         * ================  Mixed Layout Form  =======================
+         */
+        mixedForm: {
+            title: 'Mixed Layout Form',
+            id: 'mixed-form-panel',
+            layout: 'fit',
+            bodyPadding: 15,
+            items: {
+                title: 'Nex Email',
+                layout: 'fit',
+                frame: true,
+                border: false,
+                items: {
+                    xtype: 'form',
+                    url: 'save-form.php',
+                    padding: '5 5 0 5',
+                    border: false,
+                    cls: 'mixed-form-panel-body',
+
+                    defaultType: 'textfield',
+                    items: [{
+                        fieldLabel: 'From',
+                        name: 'from',
+                        anchor: '100%'  // anchor width by %
+                    }, {
+                        xtype: 'fieldcontainer',
+                        fieldLabel: 'To',
+                        layout: 'box',
+                        items: [{
+                            xtype: 'button',
+                            text: 'Contacts',
+                            margin: '0 10 0 0'
+                        }, {
+                            xtype: 'textfield',
+                            name: 'to',
+                            flex: 1,
+                            hideLabel: true
+                        }]
+                    }, {
+                        fieldLabel: 'Subject',
+                        name: 'subject',
+                        anchor: '100%'  // anchor width by %
+                    }, {
+                        hideLabel: true,
+                        xtype: 'textarea',
+                        name: 'msg',
+                        anchor: '100% 100%' // anchor width and height
+                    }]
+                },
+
+                dockedItems: [
+                    {
+                        xtype: 'toolbar',
+                        border: false,
+                        cls: 'mixed-form-panel-body',
+                        items: [{
+                            text: 'Send',
+                            iconCls: 'icon-send'
+                        }, '-', {
+                            text: 'Save',
+                            iconCls: 'icon-save'
+                        }, {
+                            text: 'Check Spelling',
+                            iconCls: 'icon-spell'
+                        }, '-', {
+                            text: 'Print',
+                            iconCls: 'icon-print'
+                        }, '->', {
+                            text: 'Attach a File',
+                            iconCls: 'icon-attach'
+                        }]
+                    }
+                ]
+            }
         }
-    }
+    };
 }

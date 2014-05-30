@@ -19,6 +19,7 @@
     <!-- page specific -->
     <script src="${pageContext.request.contextPath}/js/layouts/basic.js"></script>
     <script src="${pageContext.request.contextPath}/js/layouts/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/js/layouts/combination.js"></script>
     <script src="${pageContext.request.contextPath}/js/layout-browser.js"></script>
 </head>
 
