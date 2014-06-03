@@ -1,6 +1,7 @@
 package com.hong.ext.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Cai on 2014/5/30 16:23.
@@ -8,14 +9,15 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "sys_user")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(columnDefinition = "bigint")
     private String id;
     @Version
     private Long version;
     private String name;
-    @Column(columnDefinition = "Long")
+    @Column(columnDefinition = "bigint")
     private String age;
     @Column(length = 50)
     private String type;
