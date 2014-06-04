@@ -179,14 +179,15 @@
                 // Extra constraint margins within default constrain region of parentNode
                 constraintInsets: '0 -' + (Ext.getScrollbarSize().width + 5) + ' 0 0'
             });
-            toolbar.show();
-            toolbar.anchorTo(
-                document.body,
-                Ext.optionsToolbarAlign || 'tr-tr',
-                [-(Ext.getScrollbarSize().width + 5), 0],  //adjust for scrollbar offsets
-                false,                                     //anim
-                true                                       //monitor scroll
-            );
+//            toolbar.show();
+//            toolbar.destroy();      // TODO 关闭toolbar
+//            toolbar.anchorTo(
+//                document.body,
+//                Ext.optionsToolbarAlign || 'tr-tr',
+//                [-(Ext.getScrollbarSize().width + 5), 0],  //adjust for scrollbar offsets
+//                false,                                     //anim
+//                true                                       //monitor scroll
+//            );
 
         }, 100);
 
