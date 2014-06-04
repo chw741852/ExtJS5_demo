@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.orm.hibernate4.SessionFactoryUtils;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,7 +21,8 @@ import java.util.Map;
  * Created by Cai on 2014/6/3 13:57.
  * TODO
  */
-public abstract class BaseDaoImpl<T extends Serializable, PK extends Serializable> extends HibernateDaoSupport implements IBaseDao<T, PK> {
+@Repository("baseDao")
+public abstract class BaseDaoImpl<T extends Serializable, PK extends Serializable> implements IBaseDao<T, PK> {
     private final static Logger logger = LoggerFactory.getLogger(BaseDaoImpl.class);
 
     @PersistenceContext
@@ -51,7 +53,7 @@ public abstract class BaseDaoImpl<T extends Serializable, PK extends Serializabl
 
     @Override
     public void saveObject(T o) {
-        getHibernateTemplate().persist(o);
+        em.persist(o);
     }
 
     @Override
@@ -76,13 +78,13 @@ public abstract class BaseDaoImpl<T extends Serializable, PK extends Serializabl
 
     @Override
     public T findObjectById(Class<T> objClass, PK id) {
-        return getHibernateTemplate().get(objClass, id);
+        return em.find(objClass, id);
     }
 
     @Override
     public void refreshCache() {
-        getHibernateTemplate().flush();
-        getHibernateTemplate().clear();
+        em.flush();
+        em.clear();
     }
 
     @Override

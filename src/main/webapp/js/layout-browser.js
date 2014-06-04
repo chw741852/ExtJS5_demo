@@ -22,7 +22,12 @@ Ext.onReady(function() {
 
     // Gets all layouts examples
     var layoutExamples = [];
+
     Ext.Object.each(getBasicLayouts(), function(name, example) {
+        layoutExamples.push(example);
+    });
+
+    Ext.Object.each(getCombinationLayouts(), function(name, example) {
         layoutExamples.push(example);
     });
 
@@ -30,8 +35,19 @@ Ext.onReady(function() {
         layoutExamples.push(example);
     });
 
-    Ext.Object.each(getCombinationLayouts(), function(name, example) {
-        layoutExamples.push(example);
+    var tabLayouts = new Ext.TabPanel ({
+        id: 'tab-layouts',
+        xtype: 'tabpanel',
+        activeTab: 0,
+        items: [{
+            title: '首页',
+            html: '这里是首页'
+        }, {
+            title: '面板2',
+            html: '这里是面板2',
+            closable: true
+        }],
+        renderTo: Ext.getBody()
     });
 
     // This is the main content center region that will contain each example layout panel.
@@ -45,7 +61,9 @@ Ext.onReady(function() {
         margins: '2 5 5 0',
         activeItem: 0,
         border: false,
-        items: layoutExamples
+        items: [
+            tabLayouts
+        ]
     };
 
     var store = Ext.create('Ext.data.TreeStore', {
@@ -62,10 +80,10 @@ Ext.onReady(function() {
     var treePanel = Ext.create('Ext.tree.Panel', {
         id: 'tree-panel',
         title: 'Sample Layouts',
-        region: 'north',
+        region: 'west',
         split: true,
-        height: 360,
-        width: 150,
+//        height: 360,
+        width: 240,
         rootVisible: false,
         autoScroll: true,
         store: store
@@ -73,13 +91,26 @@ Ext.onReady(function() {
 
     // Assign the changeLayout function to be called on tree node click.
     treePanel.getSelectionModel().on('select', function(selModel, record) {
+        var selTab = Ext.getCmp(record.getId());
         if (record.get('leaf')) {
-            Ext.getCmp('content-panel').layout.setActiveItem(record.getId() + '-panel');
+            if (selTab == undefined) {
+                var addTab = tabLayouts.add({
+                    id: record.getId(),
+                    title: record.getId() + '-panel',
+                    html: '这里是新建tab ' + record.getId(),
+                    closable: true
+                });
+                tabLayouts.setActiveTab(addTab);
 
-            detailsCmp = Ext.getCmp('details-panel');
-            detailsCmp.body.hide().slideIn('l', { stopAnimation: true, duration: 200 });
-            detailsCmp.update(Ext.getDom(record.getId() + '-details').innerHTML);
-            detailsCmp.doLayout();
+//            Ext.getCmp('content-panel').layout.setActiveItem(record.getId() + '-panel');
+
+//            detailsCmp = Ext.getCmp('details-panel');
+//            detailsCmp.body.hide().slideIn('l', { stopAnimation: true, duration: 200 });
+//            detailsCmp.update(Ext.getDom(record.getId() + '-details').innerHTML);
+//            detailsCmp.doLayout();
+            } else {
+                tabLayouts.setActiveTab(selTab);
+            }
         }
     });
 
@@ -92,7 +123,26 @@ Ext.onReady(function() {
         bodyStyle: 'padding-bottom:15px;background:#fff;',
         autoScroll: true,
         html: '<p class="details-info">When you select a layout from the tree, additional details will display here.</p>'
-    }
+    };
+
+    var accordionLayouts = {
+        id: 'accordion-layouts',
+//        title: 'Accordion-折叠窗口',
+        region: 'west',
+        split: true,
+//        height: 360,
+        width: 240,
+        layout: 'accordion',
+        items: [
+            treePanel,
+            new Ext.Panel({
+                title: '系统菜单管理 - menus'
+            }),
+            new Ext.Panel({
+                title: '内部雇员管理 - employee'
+            })
+        ]
+    };
 
     // Finally, build the main layout once all the pieces are ready. This is also a good
     // example of putting together a full-screen BorderLayout within a Viewport.
@@ -105,18 +155,7 @@ Ext.onReady(function() {
             region: 'north',
             html: '<h1> Ext.Layout.Browser</h1>',
             height: 30
-        }, {
-            layout: 'border',
-            id: 'layout-browser',
-            region: 'west',
-            border: false,
-            split: true,
-            margins: '2 0 5 5',
-            width: 290,
-            minSize: 100,
-            maxSize: 500,
-            items: [ treePanel, detailsPanel ]
-        },
+        }, accordionLayouts,
             contentPanel
         ]
     });

@@ -27,5 +27,10 @@ public interface IBaseService<T extends Serializable, PK extends Serializable> {
      */
     public boolean deleteObject(final T t);
 
-//    public T
+    /**
+     * 通过ID查询对象
+     * @param id
+     * @return
+     */
+    public T findObjectById(final Class<T> objClass, final PK id);
 }

@@ -3,9 +3,11 @@
 <head>
     <title>Ext JS Layout Browser Examples</title>
 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <!-- Ext -->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/script/ext5/shared/include-ext.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/script/ext5/shared/options-toolbar.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/script/ext5/shared/include-ext.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/script/ext5/shared/options-toolbar.js"></script>
 
     <!-- example code -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/layout-browser.css">
@@ -17,10 +19,10 @@
     </script>
 
     <!-- page specific -->
-    <script src="${pageContext.request.contextPath}/js/layouts/basic.js"></script>
-    <script src="${pageContext.request.contextPath}/js/layouts/custom.js"></script>
-    <script src="${pageContext.request.contextPath}/js/layouts/combination.js"></script>
-    <script src="${pageContext.request.contextPath}/js/layout-browser.js"></script>
+    <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/basic.js"></script>
+    <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/custom.js"></script>
+    <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/combination.js"></script>
+    <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layout-browser.js"></script>
 </head>
 
 <body>
