@@ -97,7 +97,7 @@ Ext.onReady(function() {
                 var addTab = tabLayouts.add({
                     id: record.getId(),
                     title: record.getId() + '-panel',
-                    html:'<iframe src="' + contextPath + '/user/list" width="100%" height="100%"></iframe>',
+                    html:'<iframe src="' + contextPath + '/user/list" width="100%" height="100%"></iframe>',// frameborder="0"
                     closable: true
                 });
                 tabLayouts.setActiveTab(addTab);

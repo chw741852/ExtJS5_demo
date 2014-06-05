@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "total": 12, //这告知一共多少行
+    "users": [ //当前页只需要4行，因为pageSize是4
+        { "name": "Lisa", "email": "lisa@simpsons.com", "phone": "555-111-1224" },
+        { "name": "Bart", "email": "bart@simpsons.com", "phone": "555-222-1234" },
+        { "name": "Homer", "email": "home@simpsons.com", "phone": "555-222-1244" },
+        { "name": "Marge", "email": "marge@simpsons.com", "phone": "555-222-1254" }
+    ]
+}
