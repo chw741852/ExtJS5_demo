@@ -31,25 +31,10 @@
                 reader: {
                     type: 'json',
                     root: 'users',
-                    totalProperty: 12
+                    totalProperty: 'total'
                 }
             }
         });
-
-//        Ext.create('Ext.data.Store', {
-//            model: 'User',
-//            autoLoad: true,
-//            pageSize: 4,
-//            proxy: {
-//                type: 'ajax',
-//                url : 'data/users.json',
-//                reader: {
-//                    type: 'json',
-//                    root: 'users',
-//                    totalProperty: 'total'
-//                }
-//            }
-//        });
 
         Ext.create('Ext.grid.Panel', {
             renderTo: 'container',
@@ -86,15 +71,16 @@
             ],
             bbar: {
                 xtype: 'pagingtoolbar',
-                stroe: userStore,
+                pageSize: 2,
+                store: userStore,
                 displayInfo: true,
-                plugins: new Ext.ux.ProgressBarPager()      // TODO 先解决分页，再解决查询form
+                plugins: new Ext.ux.ProgressBarPager()      // TODO 解决查询form
             }
         });
     });
 </script>
 <body>
-<div>查询</div>
+<div id="condition">查询</div>
 <div id="container"></div>
 </body>
 </html>
