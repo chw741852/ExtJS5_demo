@@ -9,8 +9,9 @@ Ext.define('Orochi.model.User', {
     ],
     fields: ['name', 'email', 'phone']
 });
+
 Ext.define('Orochi.view.user', {
-    extends: 'Ext.grid.Panel',
+    extend: 'Ext.grid.Panel',
 
     requires: [
         'Ext.data.*',
@@ -18,22 +19,27 @@ Ext.define('Orochi.view.user', {
         'Ext.util.*',
         'Ext.toolbar.Paging',
         'Ext.ux.ProgressBarPager',
-        'KitchenSink.model.Company'
+        'Orochi.model.User'
     ],
     xtype: 'progress-bar-pager',
+    height: 320,
     frame: true,
     title: 'Progress Bar Pager',
     initComponent: function() {
         this.width = 650;
-
+        this.renderTo = 'container';
+        this.columnLines = true;
+        this.collapsible = true;
+        this.multiSelect = true;
         var userStore = new Ext.data.Store({
-            model: 'userModel',
+            model: 'Orochi.model.User',
+//            remoteSort: true,
             autoLoad: true,
             pageSize: 4,
             proxy: {
                 type: 'ajax',
                 enablePaging: true,
-                url: baseUrl + '/user/user.json',
+                url: '/demo/user/user.json',
                 reader: {
                     type: 'json',
                     root: 'users',
@@ -41,6 +47,40 @@ Ext.define('Orochi.view.user', {
                 }
             }
         });
-    }
 
+        Ext.apply(this, {
+            store: userStore,
+            columns: [{
+                xtype: 'rownumberer'
+            },{
+                text: 'name',
+                sortable: false,
+                hideable: false,
+                flex: 1,
+                dataIndex: 'name'
+            }, {
+                text: 'Email Address',
+                dataIndex: 'email',
+                flex: 1,
+                hidden: true
+            }, {
+                text: 'Phone Number',
+                flex: 1,
+                dataIndex: 'phone'
+            }],
+            bbar: {
+                xtype: 'pagingtoolbar',
+                pageSize: 4,
+                store: userStore,
+                displayInfo: true,
+                plugins: new Ext.ux.ProgressBarPager()
+            }
+        });
+        this.callParent();
+    },
+
+    afterRender: function() {
+        this.callParent(arguments);
+        this.getStore().load();
+    }
 });

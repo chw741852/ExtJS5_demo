@@ -43,6 +43,9 @@
             columnLines: true,
             collapsible: true,
             multiSelect: true,
+            frame: true,
+            width: 500,
+            height: 300,
 //            padding: 5,
             columns: [
                 {
@@ -79,8 +82,8 @@
         });
     });
 </script>
-<body>
+<body style="text-align: center">
 <div id="condition">查询</div>
-<div id="container"></div>
+<div id="container" style="text-align: center"></div>
 </body>
 </html>
