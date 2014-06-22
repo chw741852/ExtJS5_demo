@@ -21,12 +21,9 @@ Ext.define('Orochi.view.user', {
         'Ext.ux.ProgressBarPager',
         'Orochi.model.User'
     ],
-    xtype: 'progress-bar-pager',
-    height: 320,
-    frame: true,
+//    xtype: 'progress-bar-pager',
     title: 'Progress Bar Pager',
     initComponent: function() {
-        this.width = 650;
         this.renderTo = 'container';
         this.columnLines = true;
         this.collapsible = true;
@@ -39,7 +36,7 @@ Ext.define('Orochi.view.user', {
             proxy: {
                 type: 'ajax',
                 enablePaging: true,
-                url: '/demo/user/user.json',
+                url: '/ext5/user/user.json',
                 reader: {
                     type: 'json',
                     root: 'users',

@@ -43,10 +43,13 @@
         theme = getQueryParam('theme') || 'crisp',
         includeCSS = !hasOption('nocss', path),
         hasOverrides = !hasOption('nooverrides', path) && !!{
+            // TODO: remove neptune
             neptune: 1,
             classic: 1,
+            gray: 1,
             'neptune-touch': 1,
-            crisp: 1
+            crisp: 1,
+            'crisp-touch': 1
         }[theme],
         repoDevMode = getCookieValue('ExtRepoDevMode'),
         packagePath,
@@ -60,7 +63,7 @@
         path = path.substring(0, path.lastIndexOf('/'));
     }
     // path == root of ext
-
+        
     theme = 'ext-theme-' + theme;
     packagePath = path + '/packages/' + theme + '/build/';
     themePath = packagePath + 'resources/' + theme + (rtl ? '-all-rtl' : '-all');

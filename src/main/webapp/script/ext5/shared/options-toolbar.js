@@ -27,18 +27,18 @@
         comboWidth = {
             classic: 160,
             gray: 160,
-            access: 180,
             neptune: 180,
+            crisp: 180,
             'neptune-touch': 220,
-            crisp: 220
+            'crisp-touch': 220
         },
         labelWidth = {
             classic: 40,
             gray: 40,
-            access: 45,
             neptune: 45,
+            crisp: 45,
             'neptune-touch': 55,
-            crisp: 55
+            'crisp-touch': 55
         },
         defaultQueryString, src, theme, rtl, toolbar;
 
@@ -59,9 +59,9 @@
     rtl = getQueryParam('rtl') || defaultRtl;
 
     if (rtl.toString() === 'true') {
-        requires.push('Ext.rtl.*');
-        Ext.define('Ext.GlobalRtlComponent', {
-            override: 'Ext.AbstractComponent',
+        requires.unshift('Ext.rtl.*');
+        Ext.define('Ext.examples.RtlComponent', {
+            override: 'Ext.Component',
             rtl: true
         });
     }
@@ -89,6 +89,11 @@
             Ext.supports.CSS3BorderRadius = false;
             Ext.getBody().addCls('x-nbr x-nlg');
         }
+
+        if (hasOption('nlg')) {
+            Ext.getBody().addCls('x-nlg');
+        }
+
         function setParam(param) {
             var queryString = Ext.Object.toQueryString(
                 Ext.apply(Ext.Object.fromQueryString(location.search), param)
@@ -132,9 +137,9 @@
                             { value: 'neptune', name: 'Neptune' },
                             { value: 'neptune-touch', name: 'Neptune Touch' },
                             { value: 'crisp', name: 'Crisp' },
+                            { value: 'crisp-touch', name: 'Crisp Touch' },
                             { value: 'classic', name: 'Classic' },
-                            { value: 'gray', name: 'Gray' },
-                            { value: 'access', name: 'Accessibility' }
+                            { value: 'gray', name: 'Gray' }
                         ]
                     }),
                     value: theme,
@@ -180,7 +185,6 @@
                 constraintInsets: '0 -' + (Ext.getScrollbarSize().width + 5) + ' 0 0'
             });
 //            toolbar.show();
-//            toolbar.destroy();      // TODO 关闭toolbar
 //            toolbar.anchorTo(
 //                document.body,
 //                Ext.optionsToolbarAlign || 'tr-tr',
