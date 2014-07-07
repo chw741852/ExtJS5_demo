@@ -11,9 +11,10 @@
 <script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/script/ext5/ux/ProgressBarPager.js"></script>
 <script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/user/user.js"></script>
 <script type="text/javascript">
+    var contextPath = '${pageContext.request.contextPath}';
     Ext.onReady(function() {
-        var basePath = '${pageContext.request.contextPath}';
         var userView = new Orochi.view.user();  // 自动运行initComponent方法
+        var queryForm = new Orochi.view.QueryForm();
 //        userView.initComponent();
     });
 
@@ -86,7 +87,7 @@
     <%--});--%>
 </script>
 <body style="text-align: center">
-<div id="condition">查询</div>
+<div id="condition"></div>
 <div id="container" style="text-align: center"></div>
 </body>
 </html>

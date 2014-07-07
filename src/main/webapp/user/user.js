@@ -36,7 +36,7 @@ Ext.define('Orochi.view.user', {
             proxy: {
                 type: 'ajax',
                 enablePaging: true,
-                url: '/ext5/user/user.json',
+                url: contextPath + '/user/user.json',
                 reader: {
                     type: 'json',
                     root: 'users',
@@ -79,5 +79,58 @@ Ext.define('Orochi.view.user', {
     afterRender: function() {
         this.callParent(arguments);
         this.getStore().load();
+    }
+});
+
+Ext.define('Orochi.view.QueryForm', {
+    extend: 'Ext.form.Panel',
+    xtype: 'form-multicolumn',
+
+    title: 'Multi Column',
+    frame: true,
+    resizable: true,
+
+    layout: 'column',
+
+    defaults: {
+        layout: 'form',
+        xtype: 'container',
+        defaultType: 'textfield',
+        style: 'width: 33%'
+    },
+
+    items: [{
+        items: [
+            { fieldLabel: 'First Name' },
+            { fieldLabel: 'Last Name' },
+            { fieldLabel: 'Phone Number' },
+            { fieldLabel: 'Email Address' }
+        ]
+    }, {
+        items: [
+            { fieldLabel: 'Street Address 1' },
+            { fieldLabel: 'Street Address 2' },
+            { fieldLabel: 'City, State' },
+            { fieldLabel: 'ZIP code' }
+        ]
+    }, {
+        items: [
+            { fieldLabel: 'Street Address 1' },
+            { fieldLabel: 'Street Address 2' },
+            { fieldLabel: 'City, State' },
+            { fieldLabel: 'ZIP code' }
+        ]
+    }],
+
+    buttons: [
+        '->',
+        { text: 'OK' },
+        { text: 'Cancel' }
+    ],
+
+    initComponent: function() {
+        this.renderTo = 'condition';
+//        this.width = 700;
+        this.callParent();
     }
 });
