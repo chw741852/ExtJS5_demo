@@ -23,10 +23,10 @@ Ext.define('Orochi.view.user', {
     ],
 //    xtype: 'progress-bar-pager',
     title: 'Progress Bar Pager',
+    collapsible: true,
     initComponent: function() {
         this.renderTo = 'container';
         this.columnLines = true;
-        this.collapsible = true;
         this.multiSelect = true;
         var userStore = new Ext.data.Store({
             model: 'Orochi.model.User',
@@ -82,13 +82,20 @@ Ext.define('Orochi.view.user', {
     }
 });
 
+// 查询条件
 Ext.define('Orochi.view.QueryForm', {
     extend: 'Ext.form.Panel',
+
+    requires: [
+        'Ext.form.*'
+    ],
+
     xtype: 'form-multicolumn',
 
     title: 'Multi Column',
     frame: true,
     resizable: true,
+    collapsible: true,
 
     layout: 'column',
 
@@ -122,8 +129,8 @@ Ext.define('Orochi.view.QueryForm', {
         ]
     }],
 
+    buttonAlign: 'center',
     buttons: [
-        '->',
         { text: 'OK' },
         { text: 'Cancel' }
     ],
