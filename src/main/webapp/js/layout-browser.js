@@ -12,7 +12,8 @@ Ext.require([
     'Ext.tree.*',
     'Ext.selection.*',
     'Ext.tab.Panel',
-    'Ext.ux.layout.Center'
+    'Ext.ux.layout.Center',
+    'Ext.ux.TabReorderer'
 ]);
 
 Ext.onReady(function() {
@@ -37,7 +38,10 @@ Ext.onReady(function() {
 
     var tabLayouts = new Ext.TabPanel ({
         id: 'tab-layouts',
-        xtype: 'tabpanel',
+        xtype: 'reorderable-tabs',
+
+        plugins: 'tabreorderer',
+
         activeTab: 0,
         items: [{
             title: '首页',
