@@ -1,15 +1,15 @@
 /**
  * This plugin allow you to reorder tabs of a TabPanel.
  */
-
 Ext.define('Ext.ux.TabReorderer', {
+
     extend: 'Ext.ux.BoxReorderer',
+
     itemSelector: '.x-tab',
-    alias: 'widget.reorderable-tabs',
 
     init: function(tabPanel) {
         var me = this;
-        
+
         me.callParent([tabPanel.getTabBar()]);
 
         // Ensure reorderable property is copied into dynamically added tabs

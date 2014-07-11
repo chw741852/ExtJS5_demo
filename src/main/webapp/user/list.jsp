@@ -6,8 +6,7 @@
 <head>
     <title>用户列表</title>
 </head>
-<script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/script/ext5/shared/include-ext.js"></script>
-<script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/script/ext5/shared/options-toolbar.js"></script>
+<jsp:include page="../common/head.jsp"></jsp:include>
 <script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/script/ext5/ux/ProgressBarPager.js"></script>
 <script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/user/user.js"></script>
 <script type="text/javascript">

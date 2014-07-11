@@ -38,13 +38,14 @@ Ext.onReady(function() {
 
     var tabLayouts = new Ext.TabPanel ({
         id: 'tab-layouts',
-        xtype: 'reorderable-tabs',
+//        xtype: 'reorderable-tabs',
 
-        plugins: 'tabreorderer',
+        plugins: Ext.create('Ext.ux.TabReorderer'),
 
         activeTab: 0,
         items: [{
             title: '首页',
+            reorderable: false,
             html: '这里是首页'
         }, {
             title: '面板2',
