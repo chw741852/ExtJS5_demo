@@ -93,7 +93,7 @@ Ext.define('Orochi.view.QueryForm', {
     xtype: 'form-multicolumn',
 
     title: 'Multi Column',
-    frame: true,
+//    frame: true,  面板圆角
     resizable: true,
     collapsible: true,
 

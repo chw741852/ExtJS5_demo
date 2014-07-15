@@ -10,7 +10,6 @@
 <script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/script/ext5/ux/ProgressBarPager.js"></script>
 <script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/user/user.js"></script>
 <script type="text/javascript">
-    var contextPath = '${pageContext.request.contextPath}';
     Ext.onReady(function() {
         var userView = new Orochi.view.user();  // 自动运行initComponent方法
         var queryForm = new Orochi.view.QueryForm();

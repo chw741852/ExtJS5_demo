@@ -7,6 +7,7 @@ Ext.require([
     'Ext.layout.*',
     'Ext.form.Panel',
     'Ext.form.Label',
+    'Ext.panel.Panel',
     'Ext.grid.*',
     'Ext.data.*',
     'Ext.tree.*',
@@ -91,6 +92,7 @@ Ext.onReady(function() {
         width: 240,
         rootVisible: false,
         autoScroll: true,
+        useArrows: true,
         store: store
     });
 
@@ -102,7 +104,7 @@ Ext.onReady(function() {
                 var addTab = tabLayouts.add({
                     id: record.getId(),
                     title: record.getId() + '-panel',
-                    html:'<iframe src="' + contextPath + '/user/list" width="100%" height="100%"></iframe>',// frameborder="0"
+                    html:'<iframe src="' + contextPath + '/user/list" width="100%" height="100%" frameborder="0"></iframe>',// frameborder="0"
                     closable: true
                 });
                 tabLayouts.setActiveTab(addTab);
@@ -132,7 +134,7 @@ Ext.onReady(function() {
 
     var accordionLayouts = {
         id: 'accordion-layouts',
-//        title: 'Accordion-折叠窗口',
+        title: 'Accordion-折叠窗口',
         region: 'west',
         split: true,
 //        height: 360,
@@ -149,18 +151,40 @@ Ext.onReady(function() {
         ]
     };
 
+    // TODO 修改标题样式
+    var titlePanel = Ext.create('Ext.panel.Panel', {
+        xtype: 'panel',
+        id: 'app-header',
+        region: 'north',
+        height: 54,
+        bodyPadding: 5,
+        bodyStyle: 'background-color: #81af34; background-image:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#8fc33a),color-stop(100%,#739b2e));',
+        split: true,
+        layout: {
+
+        },
+//        dockedItems: [{
+//            dock: 'right',
+//            xtype: 'toolbar',
+//            items: [{
+//                iconCls: null,
+//                glyph: 61
+//            }]
+//        }],
+        html: '<div class="app-header-title"> Ext.Layout.Browser</div>'
+    });
+
     // Finally, build the main layout once all the pieces are ready. This is also a good
     // example of putting together a full-screen BorderLayout within a Viewport.
     Ext.create('Ext.Viewport', {
-        layout: 'border',
+        layout: {
+            type: 'border'
+//            padding: 5
+        },
         title: 'Ext Layout Browser',
-        items: [{
-            xtype: 'box',
-            id: 'header',
-            region: 'north',
-            html: '<h1> Ext.Layout.Browser</h1>',
-            height: 30
-        }, accordionLayouts,
+        items: [
+            titlePanel,
+            accordionLayouts,
             contentPanel
         ]
     });
