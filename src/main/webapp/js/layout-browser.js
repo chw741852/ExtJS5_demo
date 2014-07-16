@@ -52,10 +52,7 @@ Ext.define('Orochi.view.ThemeSwitcher', {
                 makeItem('gray',          'Gray'),
                 '-',
                 makeItem('en',            'English',    'locale'),
-                makeItem('he',            'Hebrew',     'locale'),
-                '-',
-                makeItem('en', 'locale'),
-                makeItem('he', 'locale')
+                makeItem('he',            'Hebrew',     'locale')
             ]
         });
 
