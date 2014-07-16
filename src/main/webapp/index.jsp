@@ -7,15 +7,14 @@
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/layout-browser.css">
     <style type="text/css">
-        .app-header-title {
+        #app-header-title {
             padding: 15px 0 10px 0;
             color: #fff;
             font-size: 18px;
             font-weight: bold;
             text-shadow: 0 1px 0 #4e691f;
         }
-
-        .app-header {
+        #app-header {
             background-color:#81af34;
             background-image:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#8fc33a),color-stop(100%,#739b2e));
             background-image:-webkit-linear-gradient(top,#8fc33a,#739b2e);
@@ -24,6 +23,11 @@
             background-image:-ms-linear-gradient(top,#8fc33a,#739b2e);
             background-image:linear-gradient(top,#8fc33a,#739b2e);
             border-bottom:1px solid #567422
+        }
+        .ks-theme-switcher {
+            background-image: url(images/options.png);
+            width: 22px;
+            height: 22px;
         }
     </style>
     <!-- Ext -->

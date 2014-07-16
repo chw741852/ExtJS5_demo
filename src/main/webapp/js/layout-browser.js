@@ -17,6 +17,66 @@ Ext.require([
     'Ext.ux.TabReorderer'
 ]);
 
+Ext.define('Orochi.view.ThemeSwitcher', {
+    extend: 'Ext.Container',
+    xtype: 'themeSwitcher',
+    id: 'theme-switcher-btn',
+    margin: '0 10 0 0',
+    layout: 'hbox',
+
+    initComponent: function() {
+        function setQueryParam(name, value) {
+            var query = Ext.Object.fromQueryString(location.search);
+            query[name] = value;
+            location.search = Ext.Object.toQueryString(query);
+        }
+
+        function makeItem(value, text, paramName) {
+            paramName = paramName || "theme";
+
+//            var checked = value === (paramName == 'theme' ? theme : local)
+            return {
+                text: text,
+                group: (paramName == 'theme' ? 'themeGroup' : 'localeGroup'),
+                checked: true
+            }
+        }
+
+        var menu = Ext.create('Ext.menu.Menu', {
+            items: [
+                makeItem('neptune',       'Neptune'),
+                makeItem('neptune-touch', 'Neptune Touch'),
+                makeItem('crisp',         'Crisp'),
+                makeItem('crisp-touch',   'Crisp Touch'),
+                makeItem('classic',       'Classic'),
+                makeItem('gray',          'Gray'),
+                '-',
+                makeItem('en',            'English',    'locale'),
+                makeItem('he',            'Hebrew',     'locale'),
+                '-',
+                makeItem('en', 'locale'),
+                makeItem('he', 'locale')
+            ]
+        });
+
+        this.items = [{
+            xtype: 'component',
+            id: 'theme-switcher',
+            cls: 'ks-theme-switcher',
+            margin: '0 5 0 0',
+            listeners: {
+                scope: false,
+                click: function (e) {
+                    menu.showBy(this);
+                },
+                element: 'el'
+            }
+        }];
+
+        this.callParent();
+    }
+});
+
 Ext.onReady(function() {
     Ext.tip.QuickTipManager.init();
 
@@ -152,26 +212,30 @@ Ext.onReady(function() {
     };
 
     // TODO 修改标题样式
-    var titlePanel = Ext.create('Ext.panel.Panel', {
-        xtype: 'panel',
+    var titlePanel = Ext.create('Ext.Container', {
         id: 'app-header',
         region: 'north',
-        height: 54,
-        bodyPadding: 5,
-        bodyStyle: 'background-color: #81af34; background-image:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#8fc33a),color-stop(100%,#739b2e));',
-        split: true,
+        height: 52,
+//        bodyPadding: 5,
+//        bodyStyle: 'background-color: #81af34; background-image:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#8fc33a),color-stop(100%,#739b2e));',
+//        split: true,
         layout: {
-
+            type: 'hbox',
+            align: 'middle'
         },
-//        dockedItems: [{
-//            dock: 'right',
-//            xtype: 'toolbar',
-//            items: [{
-//                iconCls: null,
-//                glyph: 61
-//            }]
-//        }],
-        html: '<div class="app-header-title"> Ext.Layout.Browser</div>'
+
+        items: [{
+            xtype: 'component',
+            id: 'app-header-logo'
+        }, {
+            xtype: 'component',
+            id: 'app-header-title',
+            html: 'Ext JS Kitchen Sink',
+            flex: 1
+        }, {
+            xtype: 'themeSwitcher'
+        }]
+//        html: '<div class="app-header-title"> Ext.Layout.Browser</div>'
     });
 
     // Finally, build the main layout once all the pieces are ready. This is also a good
