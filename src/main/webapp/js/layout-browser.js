@@ -37,6 +37,7 @@ Ext.define('Orochi.view.ThemeSwitcher', {
 //            var checked = value === (paramName == 'theme' ? theme : local)
             return {
                 text: text,
+                value: value,
                 group: (paramName == 'theme' ? 'themeGroup' : 'localeGroup'),
                 checked: true
             }
@@ -53,7 +54,13 @@ Ext.define('Orochi.view.ThemeSwitcher', {
                 '-',
                 makeItem('en',            'English',    'locale'),
                 makeItem('he',            'Hebrew',     'locale')
-            ]
+            ],
+            listeners: {
+                scope: false,
+                click: function(e, node) {
+//                    alert(node.value + "-" + node.text);
+                }
+            }
         });
 
         this.items = [{
