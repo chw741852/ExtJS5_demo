@@ -36,7 +36,13 @@
     <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/basic.js"></script>
     <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/custom.js"></script>
     <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/combination.js"></script>
-    <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layout-browser.js"></script>
+    <%--<script charset="UTF-8" src="${pageContext.request.contextPath}/js/layout-browser.js"></script>--%>
+    <script charset="UTF-8" src="${pageContext.request.contextPath}/app/app.js"></script>
+    <script>
+        Ext.onReady(function() {
+            new Orochi.Application();
+        });
+    </script>
 </head>
 <body></body>
 </html>
