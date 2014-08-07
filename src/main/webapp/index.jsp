@@ -39,10 +39,12 @@
     <%--<script charset="UTF-8" src="${pageContext.request.contextPath}/js/layout-browser.js"></script>--%>
     <script charset="UTF-8" src="${pageContext.request.contextPath}/app/app.js"></script>
     <script>
-        Ext.onReady(function() {
-            new Orochi.Application();
-        });
+//        Ext.onReady(function() {
+//            new Orochi.Application();
+//        });
     </script>
 </head>
-<body></body>
+<body>
+<a href="${pageContext.request.contextPath}/course/lesson1/lesson1.jsp">lesson1</a>
+</body>
 </html>
