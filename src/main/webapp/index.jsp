@@ -39,9 +39,10 @@
     <%--<script charset="UTF-8" src="${pageContext.request.contextPath}/js/layout-browser.js"></script>--%>
     <script charset="UTF-8" src="${pageContext.request.contextPath}/app/app.js"></script>
     <script>
-//        Ext.onReady(function() {
+        Ext.onReady(function() {
 //            new Orochi.Application();
-//        });
+            Ext.MessageBox.alert('hello', 'Hello World!');
+        });
     </script>
 </head>
 <body>
