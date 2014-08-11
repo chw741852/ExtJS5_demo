@@ -1,9 +1,9 @@
 /**
  * Created by cai on 2014/7/27 10:17.
  */
-Ext.define('Orochi.Application', {
-    extend: 'Ext.app.Application',
-    namespace: 'Orochi',
+Ext.application({
+    name: 'Orochi',
+    appFolder: 'app',
 
     requires: [
         'Ext.tip.QuickTipManager',
@@ -21,11 +21,7 @@ Ext.define('Orochi.Application', {
         'Orochi.*'
     ],
 
-    controllers: [
-
-    ],
-
-    init: function() {
+    launch: function() {
         Ext.tip.QuickTipManager.init();
 
         var titlePanel = Ext.create('Ext.Container', {
@@ -116,6 +112,18 @@ Ext.define('Orochi.Application', {
                 new Ext.Panel({
                     title: '内部雇员管理 - employee'
                 })
+            ]
+        };
+
+        var contentPanel = {
+            id: 'content-panel',
+            region: 'center',   // this is what makes this panel into a region within the containing layout
+            layout: 'card',
+            margins: '2 5 5 0',
+            activeItem: 0,
+            border: false,
+            items: [
+                tabLayouts
             ]
         };
 

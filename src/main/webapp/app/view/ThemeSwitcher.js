@@ -4,6 +4,7 @@
 Ext.define('Orochi.view.ThemeSwitcher', {
     extend: 'Ext.Container',
     xtype: 'themeSwitcher',
+    alias: 'widget.themeSwitcher',
     id: 'theme-switcher-btn',
     margin: '0 10 0 0',
     layout: 'hbox',
