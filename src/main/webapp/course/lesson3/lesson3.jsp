@@ -7,7 +7,8 @@
 <head>
     <title></title>
     <jsp:include page="../common/head.jsp"/>
-    <script type="text/javascript" src="app.js"></script>
+    <%--<script type="text/javascript" src="model.js"></script>--%>
+    <script type="text/javascript" src="validate.js"></script>
 </head>
 <body>
 
