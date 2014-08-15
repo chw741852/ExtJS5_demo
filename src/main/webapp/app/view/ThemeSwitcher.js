@@ -2,8 +2,8 @@
  * Created by cai on 2014/7/28 22:45.
  */
 Ext.define('Orochi.view.ThemeSwitcher', {
-    extend: 'Ext.Container',
-    xtype: 'themeSwitcher',
+    extend: 'Ext.container.Container',
+//    xtype: 'themeSwitcher',
     alias: 'widget.themeSwitcher',
     id: 'theme-switcher-btn',
     margin: '0 10 0 0',
@@ -55,6 +55,6 @@ Ext.define('Orochi.view.ThemeSwitcher', {
             }
         }];
 
-        this.callParent();
+        this.callParent(arguments);
     }
 });

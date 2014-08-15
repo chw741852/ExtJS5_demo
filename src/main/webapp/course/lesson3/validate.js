@@ -33,6 +33,6 @@
 
         var validates = p.getValidation();
         var d = validates.getData();
-        alert(d);
+        alert(d.age === true);
     });
 })();
