@@ -4,7 +4,6 @@
 Ext.define('Orochi.view.ThemeSwitcher', {
     extend: 'Ext.container.Container',
     xtype: 'themeSwitcher',
-    alias: 'widget.themeSwitcher',
     id: 'theme-switcher-btn',
     margin: '0 10 0 0',
     layout: 'hbox',
@@ -55,6 +54,6 @@ Ext.define('Orochi.view.ThemeSwitcher', {
             }
         }];
 
-        this.callParent(arguments);
+        this.callParent();
     }
 });
