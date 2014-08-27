@@ -3,7 +3,8 @@
  */
 Ext.define('Orochi.view.main.Main', {
     extend: 'Ext.container.Viewport',
-    layout: 'broder',
+    alias: 'widget.OrochiMain',
+    layout: 'border',
     stateful: true,
     stateId: 'orochi-viewport',
 

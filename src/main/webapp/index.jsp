@@ -45,8 +45,8 @@
     </script>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/course/lesson1/lesson1.jsp">lesson1</a>
-<a href="${pageContext.request.contextPath}/course/lesson2/lesson2.jsp">lesson2</a>
-<a href="${pageContext.request.contextPath}/course/mvc/index.jsp">mvc</a>
+<%--<a href="${pageContext.request.contextPath}/course/lesson1/lesson1.jsp">lesson1</a>--%>
+<%--<a href="${pageContext.request.contextPath}/course/lesson2/lesson2.jsp">lesson2</a>--%>
+<%--<a href="${pageContext.request.contextPath}/course/mvc/index.jsp">mvc</a>--%>
 </body>
 </html>

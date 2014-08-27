@@ -9,7 +9,7 @@ Ext.define('Orochi.view.Header', {
     height: 52,
     layout: {
         type: 'hbox',
-        aligh: 'middle'
+        align: 'middle'
     },
 
     initComponent: function() {
