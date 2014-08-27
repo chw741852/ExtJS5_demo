@@ -1,11 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Ext JS Layout Browser Examples</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/layout-browser.css">
     <style type="text/css">
         #app-header-title {
             padding: 15px 0 10px 0;
@@ -31,18 +30,14 @@
         }
     </style>
     <!-- Ext -->
-    <jsp:include page="/common/head.jsp"></jsp:include>
-    <script charset="UTF-8" src="${pageContext.request.contextPath}/script/ext5/ux/TabReorderer.js"></script>
-    <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/basic.js"></script>
-    <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/custom.js"></script>
-    <script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/combination.js"></script>
+    <jsp:include page="common/head.jsp"></jsp:include>
+    <%--<jsp:include page="/common/head.jsp"></jsp:include>--%>
+    <%--<script charset="UTF-8" src="${pageContext.request.contextPath}/script/ext5/ux/TabReorderer.js"></script>--%>
+    <%--<script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/basic.js"></script>--%>
+    <%--<script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/custom.js"></script>--%>
+    <%--<script charset="UTF-8" src="${pageContext.request.contextPath}/js/layouts/combination.js"></script>--%>
     <%--<script charset="UTF-8" src="${pageContext.request.contextPath}/js/layout-browser.js"></script>--%>
-    <script charset="UTF-8" src="${pageContext.request.contextPath}/app.js"></script>
-    <script>
-//        Ext.onReady(function() {
-//            new Orochi.Application();
-//        });
-    </script>
+    <script type="text/javascript" charset="UTF-8" src="${pageContext.request.contextPath}/app.js"></script>
 </head>
 <body>
 <%--<a href="${pageContext.request.contextPath}/course/lesson1/lesson1.jsp">lesson1</a>--%>

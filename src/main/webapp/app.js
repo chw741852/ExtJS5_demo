@@ -26,6 +26,11 @@ Ext.application({
     ],
 
     launch: function() {
+//        Ext.create('Ext.container.Viewport', {
+//            items: [{
+//                xtype: 'accordionLayouts'
+//            }]
+//        });
         Ext.create('Orochi.view.main.Main');
     }
 });

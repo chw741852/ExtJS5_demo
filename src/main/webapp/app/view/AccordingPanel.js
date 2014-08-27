@@ -3,16 +3,22 @@
  */
 Ext.define('Orochi.view.AccordingPanel', {
     extend: 'Ext.panel.Panel',
-    xtype: 'accordionLayouts',
+    alias: 'widget.accordionLayouts',
     layout: 'accordion',
-    title: 'Accordion-折叠窗口',
     split: true,
     width: 240,
-    items: [{
-        xtype: 'panel',
-        title: '系统菜单管理 - menu'
-    }, {
-        xtype: 'panel',
-        title: '内部雇员管理 - menu'
-    }]
+//    height: 600,
+
+    initComponent: function() {
+        this.title = 'Accordion-折叠窗口';
+        this.items = [{
+            xtype: 'panel',
+            title: '系统菜单管理 - menu'
+        }, {
+            xtype: 'panel',
+            title: '内部雇员管理 - menu'
+        }];
+
+        this.callParent(arguments);
+    }
 });

@@ -8,14 +8,18 @@ Ext.define('Orochi.view.main.Main', {
     stateful: true,
     stateId: 'orochi-viewport',
 
-    items: [{
-        region: 'north',
-        xtype: 'appHeader'
-    }, {
-        region: 'west',
-        xtype: 'accordionLayouts'
-    }, {
-        region: 'center',
-        xtype: 'contentPanel'
-    }]
+    initComponent:function() {
+        this.items = [{
+            region: 'north',
+            xtype: 'appHeader'
+        }, {
+            region: 'west',
+            xtype: 'accordionLayouts'
+        }, {
+            region: 'center',
+            xtype: 'contentPanel'
+        }];
+
+        this.callParent(arguments);
+    }
 });

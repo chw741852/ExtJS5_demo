@@ -8,7 +8,7 @@ Ext.define('AM.view.user.List', {
 
     store: 'Users',
 
-    title: 'All Users',
+    title: '用户列表',
 
     initComponent: function() {
 //        this.store = {
@@ -20,7 +20,7 @@ Ext.define('AM.view.user.List', {
 //        };
 
         this.columns = [
-            {header: 'Name', dataIndex: 'name', flex: 1},
+            {header: '姓名', dataIndex: 'name', flex: 1},
             {header: 'Email', dataIndex: 'email', flex: 1}
         ];
 
