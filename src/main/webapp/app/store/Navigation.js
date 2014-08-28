@@ -3,6 +3,7 @@
  */
 Ext.define('Orochi.store.Navigation', {
     extend: 'Ext.data.TreeStore',
+    xtype: 'navigation',
     alias: 'widget.navigation',
     root: {
         expanded: true

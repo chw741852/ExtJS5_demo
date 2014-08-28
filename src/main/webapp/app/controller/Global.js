@@ -4,11 +4,16 @@
 Ext.define('Orochi.controller.Global', {
     extend: 'Ext.app.Controller',
 
+    stores: [
+        'Navigation'
+    ],
+
     views: [
         'main.Main',
         'Header',
         'ThemeSwitcher',
-        'AccordingPanel',
-        'ContentPanel'
+        'navigation.AccordingPanel',
+        'ContentPanel',
+        'navigation.Tree'
     ]
 });

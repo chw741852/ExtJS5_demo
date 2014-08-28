@@ -15,14 +15,16 @@ Ext.define('Orochi.view.navigation.Tree', {
     width: 240,
     minWidth: 100,
     split: true,
+    stateful: true,
+    stateId: 'mainnav.west',
     collapsible: true,
-    store: navigation,
+//    store: navigation,
 
     tools: [{
         type: 'up',
         tooltip: 'Switch to Breadcrumb View',
         listeners: {
-            click: alert('aaaaaaaa')
+//            click: 'showBreadcrumbNav'
         }
     }],
 
