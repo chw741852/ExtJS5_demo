@@ -15,5 +15,26 @@ Ext.define('Orochi.controller.Global', {
         'navigation.AccordingPanel',
         'ContentPanel',
         'navigation.Tree'
-    ]
+    ],
+
+//    refs: [
+//        {
+//            ref: 'aa',
+//            selector: 'navigation-tree'
+//        }
+//    ],
+
+    init: function() {
+        this.control({
+            'navigation-tree': {
+                itemdblclick: this.treeLeafDbClick
+            }
+        });
+    },
+
+    treeLeafDbClick: function(selModel, record) {
+        if (record.get('leaf')) {
+            alert(record.getId());
+        }
+    }
 });

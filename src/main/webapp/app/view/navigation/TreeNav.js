@@ -3,5 +3,10 @@
  */
 Ext.define('Orochi.view.navigation.TreeNav', {
     extend: 'Ext.tree.Panel',
-    xtype: 'ntree'
+    xtype: 'tree-nav',
+    width: 240,
+    rootVisible: false,
+    autoScroll: true,
+    useArrows: true,
+    store: 'navigation'
 });

@@ -26,6 +26,7 @@ Ext.application({
     ],
 
     launch: function() {
+        Ext.QuickTips.init();
 //        Ext.create('Ext.container.Viewport', {
 //            items: [{
 //                xtype: 'accordionLayouts'

@@ -1,0 +1,34 @@
+{
+    "text": ".",
+    "children": [{
+        "text": "Basic Ext Layouts",
+        "expanded": true,
+        "children": [{
+            "text": "Absolute",
+            "id": "absolute",
+            "leaf": true
+        }, {
+            "text": "Accordion",
+            "id": "accordion",
+            "leaf": true
+        }]
+    }, {
+        "text": "Custom Layouts",
+        "children": [{
+            "text": "Center",
+            "id": "center",
+            "leaf": true
+        }]
+    }, {
+        "text": "Combination Examples",
+        "children": [{
+            "text": "Mixed Layout Form",
+            "id": "mixed-form",
+            "leaf": true
+        }, {
+            "text": "Tabs with Nested Layouts",
+            "id": "tabs-nested-layouts",
+            "leaf": true
+        }]
+    }]
+}

@@ -3,30 +3,25 @@
  */
 Ext.define('Orochi.view.navigation.Tree', {
     extend: 'Ext.tree.Panel',
-    xtype: 'navigation-tree',
-
-    id: 'navigation_tree',
+    alias: 'widget.navigation-tree',
     title: 'Examples',
     rootVisible: false,
-    lines: false,
+//    lines: false,
     useArrows: true,
     hideHeaders: true,
     collapseFirst: false,
     width: 240,
     minWidth: 100,
-    split: true,
-    stateful: true,
-    stateId: 'mainnav.west',
-    collapsible: true,
-//    store: navigation,
+//    collapsible: true,
+//    store: 'navigation',
 
-    tools: [{
-        type: 'up',
-        tooltip: 'Switch to Breadcrumb View',
-        listeners: {
+//    tools: [{
+//        type: 'up',
+//        tooltip: 'Switch to Breadcrumb View',
+//        listeners: {
 //            click: 'showBreadcrumbNav'
-        }
-    }],
+//        }
+//    }],
 
     initComponent: function() {
         var me = this;
@@ -47,8 +42,9 @@ Ext.define('Orochi.view.navigation.Tree', {
             }
         }];
 
+        var navStore = Ext.create('Orochi.store.Navigation');
         Ext.apply(me, {
-            store: Ext.StoreMgr.get('navigation'),
+            store: navStore,
             dockedItems : [
                 {
                     xtype: 'textfield',

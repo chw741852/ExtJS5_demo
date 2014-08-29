@@ -3,6 +3,6 @@
  */
 Ext.define('Orochi.view.ContentPanel', {
     extend: 'Ext.panel.Panel',
-    xtype: 'contentPanel',
+    alias: 'widget.contentPanel',
     id: 'content-panel'
 });
