@@ -6,7 +6,8 @@ Ext.application({
     appFolder: 'app',
 
     controllers: [
-        'Global'
+        'Global',
+        'user.UserController'
     ],
 
     requires: [
@@ -26,7 +27,7 @@ Ext.application({
     ],
 
     launch: function() {
-        Ext.QuickTips.init();
+        Ext.tip.QuickTipManager.init();
 //        Ext.create('Ext.container.Viewport', {
 //            items: [{
 //                xtype: 'accordionLayouts'

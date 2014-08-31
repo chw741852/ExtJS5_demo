@@ -17,12 +17,12 @@ Ext.define('Orochi.controller.Global', {
         'navigation.Tree'
     ],
 
-//    refs: [
-//        {
-//            ref: 'aa',
-//            selector: 'navigation-tree'
-//        }
-//    ],
+    refs: [
+        {
+            ref: 'contentPanel',
+            selector: 'contentPanel'
+        }
+    ],
 
     init: function() {
         this.control({
@@ -33,8 +33,23 @@ Ext.define('Orochi.controller.Global', {
     },
 
     treeLeafDbClick: function(selModel, record) {
+        var tabLayouts = this.getContentPanel();
+
         if (record.get('leaf')) {
-            alert(record.getId());
+            var selTab = Ext.getCmp(record.getId());
+            if (selTab == undefined) {
+                selTab = tabLayouts.add({
+                    id: record.getId(),
+                    title: record.getId() + '-panel',
+//                    html: record.getId(),// frameborder="0"
+//                    xtype: 'userlist',
+                    items: {
+                        xtype: 'userlist'
+                    },
+                    closable: true
+                });
+            }
+            tabLayouts.setActiveTab(selTab);
         }
     }
 });

@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "results": [
+        {
+            "title": "ajax-Cai"
+        },
+        {
+            "title": "ajax-Tommy",
+            "xtype": "navigation-tree"
+        }
+    ]
+}
