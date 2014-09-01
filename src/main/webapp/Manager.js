@@ -8,16 +8,25 @@ Ext.define('Manager', {
     name: 'Orochi',
 
     /**
-     * 获取配置名
+     * 获取短路径view名称  xx.xxx.Xxx
      * @param ctrlName
      */
-    getViewName: function(ctrlName) {
+    getShortViewName: function(ctrlName) {
         var items = this[ctrlName];
         if (items != undefined) {
-            return items.view[0].toString();
+            return items.views[0].toString();   // 获取应用第一个view
         } else {
             return null;
         }
+    },
+
+    /**
+     * 获取view名称 Xxx
+     * @param str
+     */
+    getViewName: function(str) {
+        var splitStr = str.split('.');
+        return splitStr[splitStr.length - 1];
     },
 
     /**
@@ -34,5 +43,27 @@ Ext.define('Manager', {
         }
         fn += type;
         return fn;
+    },
+
+    /**
+     * 创建应用
+     * @param ctrlName controller 名称
+     * @param viewCfg  view 属性
+     */
+    create: function(ctrlName, viewCfg) {
+        var ctrl = Application.getController(ctrlName);    // 如果名称为ctrlName的controller不存在，则创建
+        var shortViewName = Manager.getShortViewName(ctrlName);
+
+        var center = Ext.getCmp('content-panel');
+        var viewName = Manager.getViewName(shortViewName);
+        var itemId = '[itemId=' + viewName + ']';
+        var item = center.down(itemId);
+        if (item != null) {
+            center.getLayout().setActiveItem(item);
+            return;
+        }
+
+        var viewFn = Manager.getViewFnName('view', shortViewName);
+        var view = ctrl[viewFn]();  // TODO 什么意思
     }
 });
