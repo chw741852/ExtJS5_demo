@@ -6,8 +6,7 @@ Ext.application({
     appFolder: 'app',
 
     controllers: [
-        'Global',
-        'user.UserController'
+        'Global'
     ],
 
     requires: [
