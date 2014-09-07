@@ -37,7 +37,6 @@ Ext.define('Orochi.view.user.UserList', {
                 }]
             }]
         }];
-        this.title = '用户列表',
 
         this.callParent();
     }

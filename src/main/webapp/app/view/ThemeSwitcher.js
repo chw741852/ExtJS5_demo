@@ -3,10 +3,10 @@
  */
 Ext.define('Orochi.view.ThemeSwitcher', {
     extend: 'Ext.container.Container',
-    xtype: 'themeSwitcher',
-    id: 'theme-switcher-btn',
+    alias: 'widget.themeSwitcher',
+    id: 'options-toolbar',
     margin: '0 10 0 0',
-    layout: 'hbox',
+
 
     initComponent: function() {
         function makeItem(value, text, paramName) {
@@ -40,6 +40,7 @@ Ext.define('Orochi.view.ThemeSwitcher', {
             }
         });
 
+        this.layout = ['hbox'],
         this.items = [{
             xtype: 'component',
             id: 'theme-switcher',

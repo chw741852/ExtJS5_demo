@@ -6,7 +6,7 @@
         },
         {
             "title": "ajax-Tommy",
-            "xtype": "navigation-tree"
+            "xtype": "navTree"
         }
     ]
 }

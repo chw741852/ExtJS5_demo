@@ -4,7 +4,7 @@
 Ext.define('ManagerConfig', {
     'Orochi.controller.user.UserController': {
         name: '用户管理',
-        creater: 'cai',
+        author: 'cai',
         models: ['user.UserModel'],
         stores: ['user.UserStore'],
         views: ['user.UserList'],

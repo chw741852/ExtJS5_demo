@@ -4,7 +4,7 @@
 Ext.define('Orochi.view.ContentPanel', {
     extend: 'Ext.tab.Panel',
     alias: 'widget.contentPanel',
-    id: 'content-panel',
+//    id: 'content-panel',
     plugins: Ext.create('Ext.ux.TabReorderer'),
 //    items: [{
 //        title: '首页',

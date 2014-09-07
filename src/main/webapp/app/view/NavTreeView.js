@@ -1,10 +1,9 @@
 /**
- * Created by cai on 2014/7/28 23:14.
+ * Created by cai on 2014/9/7 12:00.
  */
-Ext.define('Orochi.view.navigation.Tree', {
+Ext.define('Orochi.view.NavTreeView', {
     extend: 'Ext.tree.Panel',
-    alias: 'widget.navigation-tree',
-    title: 'Examples',
+    alias: 'widget.navTree',
     rootVisible: false,
     lines: true,
     useArrows: true,
@@ -12,16 +11,6 @@ Ext.define('Orochi.view.navigation.Tree', {
     collapseFirst: false,
     width: 240,
     minWidth: 100,
-//    collapsible: true,
-//    store: 'navigation',
-
-//    tools: [{
-//        type: 'up',
-//        tooltip: 'Switch to Breadcrumb View',
-//        listeners: {
-//            click: 'showBreadcrumbNav'
-//        }
-//    }],
 
     initComponent: function() {
         var me = this;
@@ -42,7 +31,9 @@ Ext.define('Orochi.view.navigation.Tree', {
             }
         }];
 
-        var navStore = Ext.create('Orochi.store.Navigation');
+
+        var navStore = Ext.create('Orochi.store.NavTreeStore');
+        me.store = navStore;
         Ext.apply(me, {
             store: navStore,
             dockedItems : [
@@ -116,7 +107,6 @@ Ext.define('Orochi.view.navigation.Tree', {
                 // If the current node does NOT match the search condition
                 // specified by the user...
                 if ( !visible ) {
-
                     // Check to see if any of the child nodes of this node
                     // match the search condition.  If they do then we will
                     // mark the current node as visible as well.
@@ -131,19 +121,13 @@ Ext.define('Orochi.view.navigation.Tree', {
                             break;
                         }
                     }
-
-                }
-
-                else { // Current node matches the search condition...
-
+                } else { // Current node matches the search condition...
                     // Force all of its child nodes to be visible as well so
                     // that the user is able to select an example to display.
                     for (i = 0; i < len; i++) {
                         children[i].set('visible', true );
                     }
-
                 }
-
                 return visible;
             }, v;
 

@@ -25,3 +25,7 @@
     width: 22px;
     height: 22px;
 }
+
+.btn-logout {
+    background-image: url(../images/logout.png);
+}

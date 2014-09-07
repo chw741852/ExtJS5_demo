@@ -30,6 +30,15 @@ Ext.define('Manager', {
     },
 
     /**
+     * 获取全路径view名称
+     * @param str
+     * @returns {string}
+     */
+    getFullViewName: function(str) {
+        return 'Orochi.view.' + str;
+    },
+
+    /**
      * 获取页面类对象
      * @param type
      * @param refs
@@ -54,7 +63,7 @@ Ext.define('Manager', {
         var ctrl = Application.getController(ctrlName);    // 如果名称为ctrlName的controller不存在，则创建
         var shortViewName = Manager.getShortViewName(ctrlName);
 
-        var center = Ext.getCmp('content-panel');
+        var center = Ext.getCmp('app-center');
         var viewName = Manager.getViewName(shortViewName);
         var itemId = '[itemId=' + viewName + ']';
         var item = center.down(itemId);
@@ -64,6 +73,19 @@ Ext.define('Manager', {
         }
 
         var viewFn = Manager.getViewFnName('view', shortViewName);
-        var view = ctrl[viewFn]();  // TODO 什么意思
+        var view = ctrl[viewFn]();  // 获取controller中的view
+        if (view.$isClass) {
+            view = Ext.create(Manager.getFullViewName(shortViewName), viewCfg);
+        }
+        if (!center) {
+            view.render(Ext.getBody());
+        } else {
+            if (view instanceof Ext.window.Window) {
+                view.show();
+            } else {
+                center.add(view);
+                center.setActiveTab(view);
+            }
+        }
     }
 });
