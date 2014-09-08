@@ -18,7 +18,7 @@ Ext.define('Orochi.view.CenterView', {
 //            items: []
 //        });
 //        this.callParent(arguments);
-
+//
 //        var me = this;
 //        this.on('afterrender', function() {
 //            var el = me.getTabBar().body;

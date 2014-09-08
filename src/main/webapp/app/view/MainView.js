@@ -8,6 +8,8 @@ Ext.define('Orochi.view.MainView', {
         'Orochi.view.NorthView', 'Orochi.view.WestView', 'Orochi.view.CenterView', 'Orochi.view.SouthView'
     ],
     layout: 'border',
+    minWidth: '800',
+    autoScroll: true,
 //    renderTo: Ext.getBody(),
 
     initComponent: function() {

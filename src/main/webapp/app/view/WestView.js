@@ -6,6 +6,7 @@ Ext.define('Orochi.view.WestView', {
     id: 'app-wester',
     region: 'west',
     layout: 'accordion',
+    collapsible: true,
     split: true,
     width: 240,
 
