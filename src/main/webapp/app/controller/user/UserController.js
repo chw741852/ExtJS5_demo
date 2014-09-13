@@ -11,15 +11,11 @@ Ext.define('Orochi.controller.user.UserController', {
     refs: [
         {
             ref: 'queryUserListForm',
-            selector: 'form'
+            selector: 'form[itemId=queryUserListForm]'
         },
         {
             ref: 'userList',
-            selector: '#user_userList'
-        },
-        {
-            ref: 'userList',
-            selector: 'grid'
+            selector: 'grid[itemId=userList]'
         }
     ],
 

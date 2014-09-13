@@ -25,11 +25,12 @@ Ext.define('Orochi.controller.NavTreeController', {
         var tabLayouts = this.getContentPanel();
 
         if (record.get('leaf')) {
-            var selTab = Ext.getCmp(record.getId());
+//            var selTab = Ext.getCmp(record.getId());
+            var selTab = tabLayouts.getComponent(record.getId());
             if (selTab == undefined) {
                 Manager.create('Orochi.controller.user.UserController', {
-                    id: record.getId(),
-                    title: '用户列表',
+                    itemId: record.getId(),
+                    title: '用户列表 - ' + record.getId(),
                     closable: true
                 });
 //                selTab = tabLayouts.add({

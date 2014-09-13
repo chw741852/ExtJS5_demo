@@ -5,7 +5,7 @@ Ext.define('Orochi.view.user.UserList', {
     extend: 'Ext.panel.Panel',
     requires: ['Ext.form.Panel', 'Ext.form.FieldSet'],
     alias: 'widget.userList',
-//    itemId: 'UserList',
+    itemId: 'UserList',
     title: '用户管理',
 //    closable: true,
     layout: {
@@ -15,11 +15,10 @@ Ext.define('Orochi.view.user.UserList', {
     bodyPadding: 10,
 
     initComponent: function() {
-        var me = this;
         this.items = [
             {
                 xtype: 'form',
-                id: 'user_queryUserListForm' + me.id,
+                itemId: 'queryUserListForm',
                 title: '查询信息',
                 collapsible: true,
                 autoScroll: true,
@@ -60,7 +59,7 @@ Ext.define('Orochi.view.user.UserList', {
             {
                 xtype: 'grid',
                 title: '用户列表',
-                id: 'user_userList',
+                itemId: 'userList',
                 collapsible: true,
                 border: true,
                 store: 'user.UserStore',
